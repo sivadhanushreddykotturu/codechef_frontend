@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChef Attendance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <main class="dashboard-container">
+            <header class="header">
+                <div class="brand">
+                    <i class="fa-solid fa-building-columns brand-icon"></i>
+                    <div class="brand-text">
+                        <h1>CodeChef Contest Attendance Tracker</h1>
+                        <p>A tool for faculty to analyze student participation and ratings in CodeChef contests.</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="panel">
+                <form id="uploadForm" class="upload-section">
+
+                    <div class="upload-header">
+                        <h2>Upload Student Excel File</h2>
+                        <p>Upload an Excel file containing student CodeChef usernames to generate attendance and rating
+                            reports.</p>
+                        <div class="upload-instruction-alert">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Note: Ensure CodeChef IDs are strictly listed under a column named
+                                <strong class="highlight-column">Username</strong> (in sample excel file).</span>
+                        </div>
+                    </div>
+
+                    <div class="file-drop-area" id="dropArea">
+                        <i class="fa-solid fa-file-arrow-up drop-icon"></i>
+                        <p class="drop-title">Drag and drop your file here</p>
+                        <p class="drop-subtitle">or</p>
+                        <label for="fileInput" class="btn-secondary">Browse Files</label>
+                        <input type="file" id="fileInput" name="file" accept=".xlsx" required hidden>
+                    </div>
+
+                    <div id="fileInfo" class="file-info hidden">
+                        <i class="fa-solid fa-file-excel file-info-icon"></i>
+                        <span id="fileName">No file chosen</span>
+                        <button type="button" class="clear-file" id="clearFile" title="Remove file">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="format-sample">
+                        <a href="username.xlsx" download class="sample-link"><i class="fa-solid fa-download"></i>
+                            Download Sample Excel Template</a>
+                    </div>
+
+                    <div class="action-container">
+                        <button type="submit" id="submitBtn" class="btn-primary" disabled>
+                            <span class="btn-text">Generate Report</span>
+                            <span class="btn-loader hidden"><i class="fa-solid fa-circle-notch fa-spin"></i> Processing
+                                Report...</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="statusMessage" class="status-message hidden">
+                    <!-- Status messages will appear here -->
+                </div>
+            </div>
+
+            <footer class="footer-info">
+                <h3>Report Contents:</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Current CodeChef rating</li>
+                    <li><i class="fa-solid fa-check"></i> Contest participation during the semester</li>
+                    <li><i class="fa-solid fa-check"></i> Attendance per contest</li>
+                </ul>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
